@@ -7,9 +7,12 @@ export default function Footer() {
         {/* Footer Content */}
         <div className="flex flex-col items-center justify-between md:flex-row">
           <div className="text-lg font-bold mb-4 md:mb-0">
-            <span>GrowBrightly</span>
+            <span className="select-none">GrowBrightly</span>
+          </div>
+          <div className="font-semibold">
           </div>
           <div className="space-x-4">
+            <span className="text-right">Our social medias</span><br/>
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white">
               Twitter
             </a>
