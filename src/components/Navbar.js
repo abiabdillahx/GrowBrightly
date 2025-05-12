@@ -33,10 +33,10 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <div className="space-x-6 hidden md:flex text-gray-700 font-medium duration-500">
-          <Link href="/" className="duration-300 hover:text-green-600 hover:-translate-y-1">Home</Link>
-          <Link href="/check" className="duration-300 hover:text-green-600 hover:-translate-y-1">StuntCheck</Link>
-          <Link href="/about" className="duration-300 hover:text-green-600 hover:-translate-y-1">About Us</Link>
-          <Link href="#" className="duration-300 hover:text-green-600 hover:-translate-y-1">Blog</Link>
+          <Link href="/" className="duration-300 hover:text-green-600 hover:-translate-y-1 py-1">Home</Link>
+          <Link href="/check" className="duration-300 hover:text-green-600 hover:-translate-y-1 py-1">StuntCheck</Link>
+          <Link href="/about" className="duration-300 hover:text-green-600 hover:-translate-y-1 py-1">About Us</Link>
+          <Link href="/login" className="duration-300 hover:text-green-600 hover:-translate-y-1 font-bold border rounded-md px-4 py-1 border-emerald-600">Login</Link>
         </div>
 
         {/* Mobile Menu Button */}

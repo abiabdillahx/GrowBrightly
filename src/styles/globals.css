@@ -43,3 +43,23 @@ body {
 .counter-item:hover {
     transform: scale(1.05);
 }
+
+/* Login */
+.bg-emerald-gradient {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+.focus-emerald:focus {
+    border-color: #059669;
+    box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.2);
+}
+.btn-emerald {
+    background-color: #059669;
+    transition: all 0.3s ease;
+}
+.btn-emerald:hover {
+    background-color: #047857;
+    transform: translateY(-2px);
+}
+.btn-emerald:active {
+    transform: translateY(0);
+}
