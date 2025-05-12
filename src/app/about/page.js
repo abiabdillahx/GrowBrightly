@@ -1,6 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import Head from "next/head";
+import Image from "next/image";
 
 // export const metadata = {
 //   title: "About Us - GrowBrightly",  // Override title untuk halaman About
@@ -53,7 +54,7 @@ export default function AboutPage() {
                 We are dedicated to creating sustainable solutions for the
                 better next generation. We believe that our service will make a
                 better life growth. GrowBrightly is helped by AI to increase
-                our kids' growth.
+                our kids&apos; growth.
               </p>
               <a
                 href="#"
@@ -63,7 +64,7 @@ export default function AboutPage() {
               </a>
             </div>
             <div className="md:w-1/2 flex justify-center">
-              <img
+              <Image
                 src="/placeholder.png"
                 alt="Team working together"
                 className="rounded-xl shadow-xl w-full max-w-lg"
