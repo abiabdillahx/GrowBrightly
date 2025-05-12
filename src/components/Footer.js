@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function Footer() {
   return (
     // <!-- Footer -->
@@ -18,18 +20,18 @@ export default function Footer() {
                     <div>
                         <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
                         <ul className="space-y-2">
-                            <li><a href="/" className="text-gray-400 hover:text-white transition">Home</a></li>
-                            <li><a href="/check" className="text-gray-400 hover:text-white transition">StuntCheck</a></li>
-                            <li><a href="/about" className="text-gray-400 hover:text-white transition">About Us</a></li>
-                            <li><a href="/blog" className="text-gray-400 hover:text-white transition">Blog</a></li>
+                            <li><Link href="/" className="text-gray-400 hover:text-white transition">Home</Link></li>
+                            <li><Link href="/check" className="text-gray-400 hover:text-white transition">StuntCheck</Link></li>
+                            <li><Link href="/about" className="text-gray-400 hover:text-white transition">About Us</Link></li>
+                            <li><Link href="/blog" className="text-gray-400 hover:text-white transition">Blog</Link></li>
                         </ul>
                     </div>
                     
                     <div>
                         <h4 className="text-lg font-semibold mb-4">Resources</h4>
                         <ul className="space-y-2">
-                            <li><a href="#" className="text-gray-400 hover:text-white transition">FAQs</a></li>
-                            <li><a href="#" className="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
+                            <li><Link href="#" className="text-gray-400 hover:text-white transition">FAQs</Link></li>
+                            <li><Link href="#" className="text-gray-400 hover:text-white transition">Privacy Policy</Link></li>
                         </ul>
                     </div>
                     
@@ -37,22 +39,22 @@ export default function Footer() {
                         <h4 className="text-lg font-semibold mb-4">Contact</h4>
                         <ul className="space-y-2">
                             <li className="flex items-center">
-                              <a href="mailto:hello@growbrightly">
+                              <Link href="mailto:hello@growbrightly">
                                 <i className="fas fa-envelope text-gray-400 mr-2"></i>
                                 <span>hello@growbrightly.com</span>
-                              </a>
+                              </Link>
                             </li>
                             <li className="flex itens-center">
-                              <a href="https://instagram.com">
+                              <Link href="https://instagram.com">
                                 <i className="fa-brands fa-instagram mr-2 text-gray-300"></i>
                                 <span>growbrighly</span>
-                              </a>
+                              </Link>
                             </li>
                             <li>
-                              <a href="https://tiktok.com">
+                              <Link href="https://tiktok.com">
                                 <i className="fa-brands fa-tiktok mr-2 text-gray-300"></i>
                                 <span>grow.brighly</span>
-                              </a>
+                              </Link>
                             </li>
                         </ul>
                     </div>

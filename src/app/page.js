@@ -37,7 +37,7 @@ import { useEffect } from "react";
                             <i className="fas fa-child text-xl"></i>
                         </div>
                         <h3 className="text-xl font-semibold text-gray-800 mb-2">Growth Analysis</h3>
-                        <p className="text-gray-600">Our AI compares your child's measurements with WHO growth standards to detect potential issues.</p>
+                        <p className="text-gray-600">Our AI compares your child&apos;s measurements with WHO growth standards to detect potential issues.</p>
                     </div>
                     
                     {/* <!-- Feature 2 --> */}
@@ -46,7 +46,7 @@ import { useEffect } from "react";
                             <i className="fas fa-brain text-xl"></i>
                         </div>
                         <h3 className="text-xl font-semibold text-gray-800 mb-2">Gemini AI</h3>
-                        <p className="text-gray-600">Powered by Google's most advanced AI to provide accurate, personalized insights.</p>
+                        <p className="text-gray-600">Powered by Google&apos;s most advanced AI to provide accurate, personalized insights.</p>
                     </div>
                     
                     {/* <!-- Feature 3 --> */}
@@ -64,7 +64,7 @@ import { useEffect } from "react";
         {/* <!-- CTA Section --> */}
         <section className="py-16 bg-emerald-600 text-white">
             <div className="container mx-auto px-4 text-center">
-                <h2 className="text-3xl font-bold mb-6">Ready to Monitor Your Child's Growth?</h2>
+                <h2 className="text-3xl font-bold mb-6">Ready to Monitor Your Child&apos;s Growth?</h2>
                 <p className="text-xl mb-8 opacity-90">Join using GrowBrightly to ensure their children grow healthy and strong now.</p>
                 <a href="/check" className="inline-block bg-white text-emerald-600 font-medium py-3 px-8 rounded-full hover:bg-gray-100 transition">
                     Start Free Analysis <i className="fas fa-arrow-right ml-2"></i>
