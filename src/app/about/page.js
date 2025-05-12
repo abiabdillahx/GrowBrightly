@@ -1,39 +1,39 @@
-"use client";
-import { useEffect } from "react";
+// "use client";
+// import { useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
 
-// export const metadata = {
-//   title: "About Us - GrowBrightly",  // Override title untuk halaman About
-//   description: "Learn more about GrowBrightly"
-// };
+export const metadata = {
+  title: "About Us",  // Override title untuk halaman About
+  description: "Learn more about GrowBrightly"
+};
 
 export default function AboutPage() {
-  useEffect(() => {
-    const backToTopButton = document.getElementById("back-to-top");
+  // useEffect(() => {
+  //   const backToTopButton = document.getElementById("back-to-top");
 
-    const handleScroll = () => {
-      if (window.pageYOffset > 300) {
-        backToTopButton?.classList.remove("hidden");
-        backToTopButton?.classList.add("flex");
-      } else {
-        backToTopButton?.classList.add("hidden");
-        backToTopButton?.classList.remove("flex");
-      }
-    };
+  //   const handleScroll = () => {
+  //     if (window.pageYOffset > 300) {
+  //       backToTopButton?.classList.remove("hidden");
+  //       backToTopButton?.classList.add("flex");
+  //     } else {
+  //       backToTopButton?.classList.add("hidden");
+  //       backToTopButton?.classList.remove("flex");
+  //     }
+  //   };
 
-    const handleClick = () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    };
+  //   const handleClick = () => {
+  //     window.scrollTo({ top: 0, behavior: "smooth" });
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
-    backToTopButton?.addEventListener("click", handleClick);
+  //   window.addEventListener("scroll", handleScroll);
+  //   backToTopButton?.addEventListener("click", handleClick);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      backToTopButton?.removeEventListener("click", handleClick);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //     backToTopButton?.removeEventListener("click", handleClick);
+  //   };
+  // }, []);
 
   return (
     <>
@@ -120,12 +120,12 @@ export default function AboutPage() {
       </section>
 
       {/* Back to Top Button */}
-      <button
+      {/* <button
         id="back-to-top"
         className="fixed bottom-8 right-8 w-12 h-12 bg-emerald-600 text-white rounded-full shadow-lg hidden items-center justify-center"
       >
         <i className="fas fa-arrow-up"></i>
-      </button>
+      </button> */}
     </>
   );
 }
