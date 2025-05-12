@@ -24,18 +24,19 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="bg-white border-b shadow-l sticky top-0 z-50">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <header className="bg-[#FBFBFB] border-b shadow-l sticky py-2 z-50">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between bg-transparent">
         {/* Logo */}
-        <div className="text-2xl font-bold text-green-600">
-          <Link href="/">GrowBrightly</Link>
+        <div className="text-2xl font-bold text-emerald-700">
+          <Link href="/">{/*<i className="fas fa-baby-carriage"></i>*/}  GrowBrightly</Link>
         </div>
 
         {/* Desktop Menu */}
-        <div className="space-x-6 hidden md:flex text-gray-700 font-medium">
-          <Link href="/">Home</Link>
-          <Link href="/about">About Us</Link>
-          <Link href="/blog">Blog</Link>
+        <div className="space-x-6 hidden md:flex text-gray-700 font-medium duration-500">
+          <Link href="/" className="duration-300 hover:text-green-600 hover:-translate-y-1">Home</Link>
+          <Link href="/check" className="duration-300 hover:text-green-600 hover:-translate-y-1">StuntCheck</Link>
+          <Link href="/about" className="duration-300 hover:text-green-600 hover:-translate-y-1">About Us</Link>
+          <Link href="/blog" className="duration-300 hover:text-green-600 hover:-translate-y-1">Blog</Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -54,6 +55,7 @@ export default function Navbar() {
             className="md:hidden flex flex-col bg-white shadow-md px-6 py-4 absolute top-16 right-4 rounded-lg z-50 text-gray-700 font-medium"
           >
             <Link href="/" className="py-2 hover:text-emerald-600">Home</Link>
+            <Link href="/check" className="py-2 hover:text-emerald-600">StuntCheck</Link>
             <Link href="/about" className="py-2 hover:text-emerald-600">About Us</Link>
             <Link href="/blog" className="py-2 hover:text-emerald-600">Blog</Link>
           </div>

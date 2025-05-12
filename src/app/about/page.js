@@ -46,7 +46,7 @@ export default function AboutPage() {
         <div className="leaf-bg absolute inset-0 z-0"></div>
         <div className="container mx-auto px-6 py-20 md:py-32 relative z-10">
           <div className="flex flex-col md:flex-row items-center md:justify-end text-right">
-            <div className="md:w-1/2 mb-10 md:mb-0">
+            <div className="md:w-1/2 mb-10 md:mb-0 mx-3">
               <h1 className="text-4xl md:text-5xl font-bold text-gray-800 leading-tight mb-4">
                 About <span className="text-emerald-600">GrowBrightly</span>
               </h1>
@@ -67,6 +67,8 @@ export default function AboutPage() {
               <Image
                 src="/placeholder.png"
                 alt="Team working together"
+                width={500}
+                height={500}
                 className="rounded-xl shadow-xl w-full max-w-lg"
               />
             </div>
@@ -93,9 +95,10 @@ export default function AboutPage() {
                 Our Mission
               </h3>
               <p className="text-gray-600 text-center">
-                To revolutionize the way people interact with the environment by
-                providing innovative, sustainable solutions that reduce
-                ecological footprints while maintaining quality of life.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Phasellus iaculis metus bibendum magna pretium, et rutrum nibh sollicitudin. 
+                Donec vitae ligula non tortor rhoncus tempor. Duis ut turpis ut arcu molestie varius. 
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               </p>
             </div>
             <div className="bg-emerald-50 p-8 rounded-xl shadow-sm hover:shadow-md transition duration-300">
@@ -106,9 +109,10 @@ export default function AboutPage() {
                 Our Vision
               </h3>
               <p className="text-gray-600 text-center">
-                To create a world where sustainability is not an option but a
-                standard, where every business and individual contributes
-                positively to environmental preservation.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Phasellus iaculis metus bibendum magna pretium, et rutrum nibh sollicitudin. 
+                Donec vitae ligula non tortor rhoncus tempor. Duis ut turpis ut arcu molestie varius. 
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               </p>
             </div>
           </div>

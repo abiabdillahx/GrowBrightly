@@ -13,10 +13,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
-//   title: "GrowBrightly - Your Personalized Stunting Detector",
-  description: "We provide solutions for better growth using AI for kids.",
-};
+// export const metadata = {
+// //   title: "GrowBrightly - Your Personalized Stunting Detector",
+//   description: "We provide solutions for better growth using AI for kids.",
+// };
 
 export default function RootLayout({ children }) {
   return (
