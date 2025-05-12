@@ -92,8 +92,16 @@ export default function Stuntcheck() {
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             >
                 <option value="">-- Pilih Jenis Kelamin --</option>
-                <option value="laki-laki">Laki-laki</option>
-                <option value="perempuan">Perempuan</option>
+                <option value="laki-laki">He</option>
+                <option value="perempuan">She</option>
+                <option value="they">They/Them</option>
+                <option value="xre">Xe/Xem</option>
+                <option value="ze">Ze/Zir</option>
+                <option value="xyr">Xyr</option>
+                <option value="ve">Ve/Vir</option>
+                <option value="nigga">Nig/Ger</option>
+                <option value="sybau">Sy/Bau</option>
+                <option value="ts">Ts/Pmo</option>
             </select>
         </div>
         <button
@@ -119,13 +127,13 @@ export default function Stuntcheck() {
                   <li key={index}>{item}</li>
                 ))}
               </ul>
-            <p className='font-bold'>Analisa AI: 
-                <div className='font-normal'>
-                    {result.analisa_ai}
-                </div>
-            </p>
             </div>
           )}
+            <p className='font-bold'>Analisa AI: 
+                <span className='font-normal'>
+                    {result.analisa_ai}
+                </span>
+            </p>
         </div>
       )}
     </div>

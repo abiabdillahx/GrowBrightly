@@ -25,7 +25,7 @@ export default function Navbar() {
 
   return (
     <header className="bg-[#FBFBFB] border-b shadow-l sticky py-2 z-50">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between bg-transparent">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between bg-transparent select-none">
         {/* Logo */}
         <div className="text-2xl font-bold text-emerald-700">
           <Link href="/">{/*<i className="fas fa-baby-carriage"></i>*/}  GrowBrightly</Link>
@@ -36,7 +36,7 @@ export default function Navbar() {
           <Link href="/" className="duration-300 hover:text-green-600 hover:-translate-y-1">Home</Link>
           <Link href="/check" className="duration-300 hover:text-green-600 hover:-translate-y-1">StuntCheck</Link>
           <Link href="/about" className="duration-300 hover:text-green-600 hover:-translate-y-1">About Us</Link>
-          <Link href="/blog" className="duration-300 hover:text-green-600 hover:-translate-y-1">Blog</Link>
+          <Link href="#" className="duration-300 hover:text-green-600 hover:-translate-y-1">Blog</Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -57,7 +57,7 @@ export default function Navbar() {
             <Link href="/" className="py-2 hover:text-emerald-600">Home</Link>
             <Link href="/check" className="py-2 hover:text-emerald-600">StuntCheck</Link>
             <Link href="/about" className="py-2 hover:text-emerald-600">About Us</Link>
-            <Link href="/blog" className="py-2 hover:text-emerald-600">Blog</Link>
+            <Link href="#" className="py-2 hover:text-emerald-600">Blog</Link>
           </div>
         )}
       </nav>
