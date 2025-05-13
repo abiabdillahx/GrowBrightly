@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     // <!-- Footer -->
-        <footer className="bg-gray-800 text-white py-12">
+        <footer className="bg-gray-800 text-white py-12 select-none">
             <div className="container mx-auto px-4">
                 <div className="grid md:grid-cols-4 gap-8">
                     <div className="ml-8">
@@ -37,7 +37,7 @@ export default function Footer() {
                     
                     <div>
                         <h4 className="text-lg font-semibold mb-4">Contact</h4>
-                        <ul className="space-y-2">
+                        <ul className="space-y-2 select-text">
                             <li className="flex items-center">
                               <Link href="mailto:hello@growbrightly">
                                 <i className="fas fa-envelope text-gray-400 mr-2"></i>
@@ -60,7 +60,7 @@ export default function Footer() {
                     </div>
                 </div>
                 
-                <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 select-text">
                     <p>© 2025 GrowBrightly. All rights reserved.</p>
                 </div>
             </div>

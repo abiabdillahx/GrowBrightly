@@ -1,8 +1,10 @@
-"use client";
+// "use client";
 import { setConfig } from "next/config";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-
+// import { useEffect } from "react";
+// export const metadata = {
+//   title: "Home | GrowBrig",
+// };
   export default function Home() {
     return (
       <>

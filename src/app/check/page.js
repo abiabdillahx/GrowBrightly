@@ -1,9 +1,9 @@
 // src/app/page.js
 'use client'; // Ini penting untuk komponen yang interaktif
-
+import Head from 'next/head';
 import { useState } from 'react';
 
-export default function HomePage() {
+export default function Stuntcheck() {
   const [weight, setWeight] = useState('');
   const [height, setHeight] = useState('');
   const [age, setAge] = useState('');
@@ -42,6 +42,10 @@ export default function HomePage() {
   };
 
   return (
+    <>
+    <Head>
+        <title>StuntCheck</title>
+    </Head>
     <div className="p-4 flex flex-col items-center">
       <h1 className="text-2xl font-bold mb-4">Deteksi Stunting pada Anak</h1>
       <form onSubmit={handleSubmit} className="max-w-md space-y-4 border rounded px-20 py-5">
@@ -79,15 +83,26 @@ export default function HomePage() {
           />
         </div>
         <div>
-          <label htmlFor="gender" className="block text-gray-700 text-sm font-bold mb-2">Jenis Kelamin:</label>
-          <input
-            type="text"
-            id="gender"
-            value={gender}
-            onChange={(e) => setGender(e.target.value)}
-            required
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          />
+            <label htmlFor="gender" className="block text-gray-700 text-sm font-bold mb-2">Jenis Kelamin:</label>
+            <select
+                id="gender"
+                value={gender}
+                onChange={(e) => setGender(e.target.value)}
+                required
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            >
+                <option value="">-- Pilih Jenis Kelamin --</option>
+                <option value="laki-laki">He</option>
+                <option value="perempuan">She</option>
+                <option value="they">They/Them</option>
+                <option value="xre">Xe/Xem</option>
+                <option value="ze">Ze/Zir</option>
+                <option value="xyr">Xyr</option>
+                <option value="ve">Ve/Vir</option>
+                <option value="nigga">Nig/Ger</option>
+                <option value="sybau">Sy/Bau</option>
+                <option value="ts">Ts/Pmo</option>
+            </select>
         </div>
         <button
           type="submit"
@@ -112,15 +127,16 @@ export default function HomePage() {
                   <li key={index}>{item}</li>
                 ))}
               </ul>
-            <p className='font-bold'>Analisa AI: 
-                <div className='font-normal'>
-                    {result.analisa_ai}
-                </div>
-            </p>
             </div>
           )}
+            <p className='font-bold'>Analisa AI: 
+                <span className='font-normal'>
+                    {result.analisa_ai}
+                </span>
+            </p>
         </div>
       )}
     </div>
+    </>
   );
 }
