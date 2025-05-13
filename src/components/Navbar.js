@@ -77,6 +77,7 @@ export default function Navbar() {
           <Link href="/" className="duration-300 hover:text-emerald-600 hover:-translate-y-0.5 py-1">Home</Link>
           <Link href="/check" className="duration-300 hover:text-emerald-600 hover:-translate-y-0.5 py-1">StuntCheck</Link>
           <Link href="/about" className="duration-300 hover:text-emerald-600 hover:-translate-y-0.5 py-1">About Us</Link>
+          <Link href="/blog" className="duration-300 hover:text-emerald-600 hover:-translate-y-0.5 py-1">Blog</Link>
           {/* Conditional rendering based on auth state */}
           {loading ? (
             <div className="h-8 w-20 bg-gray-200 rounded-md animate-pulse"></div> // Simple loading placeholder
@@ -118,7 +119,7 @@ export default function Navbar() {
               )}
             </div>
           ) : (
-            <Link href="/login" className="duration-300 hover:text-green-600 hover:-translate-y-0.5 font-bold border rounded-md px-4 py-1 border-emerald-600">Login</Link>
+            <Link href="/login" className="text-white duration-300 hover:bg-emerald-700 hover:-translate-y-0.5 font-bold border rounded-full px-4 py-1 border-none bg-emerald-600">Join Us</Link>
           )}
         </div>
 
@@ -126,7 +127,7 @@ export default function Navbar() {
         <div className="md:hidden flex items-center">
            {/* Show User Icon or Login Button on Mobile when menu is closed */} 
            {!isMobileMenuOpen && !loading && !currentUser && (
-              <Link href="/login" className="text-sm font-semibold text-emerald-600 border border-emerald-600 px-3 py-1 rounded-md mr-3">Login</Link>
+              <Link href="/login" className="text-sm font-semibold text-emerald-600 border border-emerald-600 px-3 py-1 rounded-md mr-3 hidden">Login</Link>
            )}
            {!isMobileMenuOpen && !loading && currentUser && (
                <div className="mr-3">
@@ -188,8 +189,8 @@ export default function Navbar() {
             <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="py-2 hover:text-emerald-600">Home</Link>
             <Link href="/check" onClick={() => setIsMobileMenuOpen(false)} className="py-2 hover:text-emerald-600">StuntCheck</Link>
             <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="py-2 hover:text-emerald-600">About Us</Link>
-            {/* <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="py-2 hover:text-emerald-600">Blog</Link> */} 
-            {/* Conditional links for mobile */}
+            <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="py-2 hover:text-emerald-600">Blog</Link> 
+            {/* Conditional links for mobile */} 
             {currentUser ? (
                <button 
                  onClick={handleLogout} 
@@ -200,7 +201,7 @@ export default function Navbar() {
             ) : (
               <>
                 {/* <Link href="/register" onClick={() => setIsMobileMenuOpen(false)} className="py-2 hover:text-emerald-600">Register</Link> */} 
-                <Link href="/login" onClick={() => setIsMobileMenuOpen(false)} className="py-2 hover:text-emerald-600 font-semibold mt-2 border-t pt-3">Login</Link>
+                <Link href="/login" onClick={() => setIsMobileMenuOpen(false)} className="py-2 hover:text-emerald-600 font-semibold mt-2 border-t pt-3">Join Us</Link>
               </>
             )}
           </div>

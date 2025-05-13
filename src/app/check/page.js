@@ -74,43 +74,46 @@ export default function Stuntcheck() {
       </Head>
       <div className="p-8 flex justify-center bg-gray-100 min-h-screen"> {/* Container utama di tengah */}
         <div className="bg-white rounded-2xl shadow-md p-8 w-full max-w-5xl"> {/* Container form & hasil */}
-          <h1 className="text-3xl font-bold mb-6 text-center text-emerald-600">Deteksi Stunting pada Anak</h1>
+          <h1 className="text-3xl font-bold mb-6 text-center text-emerald-600">Stunting Detection in Children</h1>
           <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> {/* Layout form menggunakan Grid */}
             <div className="space-y-2">
-              <label htmlFor="weight" className="block text-gray-700 text-sm font-bold mb-1">Berat Badan (kg):</label>
+              <label htmlFor="weight" className="block text-gray-700 text-sm font-bold mb-1">Body Weight (kg):</label>
               <input
                 type="number"
                 id="weight"
                 value={weight}
                 onChange={(e) => setWeight(e.target.value)}
+                placeholder='4'
                 required
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
             <div className="space-y-2">
-              <label htmlFor="height" className="block text-gray-700 text-sm font-bold mb-1">Tinggi Badan (cm):</label>
+              <label htmlFor="height" className="block text-gray-700 text-sm font-bold mb-1">Body Height (cm):</label>
               <input
                 type="number"
                 id="height"
                 value={height}
                 onChange={(e) => setHeight(e.target.value)}
+                placeholder='65'
                 required
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
             <div className="space-y-2">
-              <label htmlFor="age" className="block text-gray-700 text-sm font-bold mb-1">Usia (bulan):</label>
+              <label htmlFor="age" className="block text-gray-700 text-sm font-bold mb-1">Age (month):</label>
               <input
                 type="number"
                 id="age"
                 value={age}
                 onChange={(e) => setAge(e.target.value)}
+                placeholder='9'
                 required
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
             <div className="space-y-2">
-              <label htmlFor="gender" className="block text-gray-700 text-sm font-bold mb-1">Jenis Kelamin:</label>
+              <label htmlFor="gender" className="block text-gray-700 text-sm font-bold mb-1">Gender:</label>
               <select
                 id="gender"
                 value={gender}
@@ -118,24 +121,25 @@ export default function Stuntcheck() {
                 required
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               >
-                <option value="">-- Pilih --</option>
+                <option value="">-- Choose --</option>
                 <option value="laki-laki">Laki-laki</option>
                 <option value="perempuan">Perempuan</option>
               </select>
             </div>
             <div className="space-y-2">
-              <label htmlFor="birthWeight" className="block text-gray-700 text-sm font-bold mb-1">Berat Lahir (gram):</label>
+              <label htmlFor="birthWeight" className="block text-gray-700 text-sm font-bold mb-1">Birth Weight (kg):</label>
               <input
                 type="number"
                 id="birthWeight"
                 value={birthWeight}
                 onChange={(e) => setBirthWeight(e.target.value)}
+                placeholder='3,5'
                 required
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
             <div className="space-y-2">
-              <label htmlFor="isPremature" className="block text-gray-700 text-sm font-bold mb-1">Riwayat Prematur (lahir &lt; 37 minggu):</label>
+              <label htmlFor="isPremature" className="block text-gray-700 text-sm font-bold mb-1">Premature History (born &lt; 37 weeks):</label>
               <select
                 id="isPremature"
                 value={isPremature}
@@ -143,48 +147,50 @@ export default function Stuntcheck() {
                 required
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               >
-                <option value="">-- Pilih --</option>
+                <option value="">-- Choose --</option>
                 <option value="ya">Ya</option>
                 <option value="tidak">Tidak</option>
               </select>
             </div>
             <div className="space-y-2">
-              <label htmlFor="feedingFrequency" className="block text-gray-700 text-sm font-bold mb-1">Frekuensi Makan/Hari:</label>
+              <label htmlFor="feedingFrequency" className="block text-gray-700 text-sm font-bold mb-1">Feeding Frequency/Day:</label>
               <input
                 type="number"
                 id="feedingFrequency"
                 value={feedingFrequency}
                 onChange={(e) => setFeedingFrequency(e.target.value)}
+                placeholder='3'
                 required
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
             <div className="space-y-2">
-              <label htmlFor="breastfeedingPattern" className="block text-gray-700 text-sm font-bold mb-1">Pola ASI (bayi &lt; 6 bulan):</label>
+              <label htmlFor="breastfeedingPattern" className="block text-gray-700 text-sm font-bold mb-1">Breastfeed Pattern (baby &lt; 6 months):</label>
               <select
                 id="breastfeedingPattern"
                 value={breastfeedingPattern}
                 onChange={(e) => setBreastfeedingPattern(e.target.value)}
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               >
-                <option value="">-- Pilih --</option>
-                <option value="Eksklusif">Eksklusif</option>
-                <option value="Campuran">Campuran</option>
+                <option value="">-- Choose --</option>
+                <option value="Eksklusif">Exclusive</option>
+                <option value="Campuran">Mixed</option>
               </select>
             </div>
             <div className="space-y-2">
-              <label htmlFor="domisili" className="block text-gray-700 text-sm font-bold mb-1">Domisili:</label>
+              <label htmlFor="domisili" className="block text-gray-700 text-sm font-bold mb-1">Nationality:</label>
               <input
                 type="text"
                 id="domisili"
                 value={domisili}
+                placeholder='Your Country'
                 onChange={(e) => setDomisili(e.target.value)}
                 required
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
             <div className="space-y-2">
-              <label htmlFor="incomePerMonth" className="block text-gray-700 text-sm font-bold mb-1">Pendapatan Bulanan:</label>
+              <label htmlFor="incomePerMonth" className="block text-gray-700 text-sm font-bold mb-1">Monthly Income:</label>
               <div className="flex rounded-md shadow-sm">
                 <input
                   type="number"
@@ -208,7 +214,7 @@ export default function Stuntcheck() {
                 </select>
               </div>
             </div>
-            <div className="col-span-1 md:col-span-2 lg:col-span-3 space-y-2">
+            {/* <div className="col-span-1 md:col-span-2 lg:col-span-3 space-y-2">
               <label htmlFor="kiaInformation" className="block text-gray-700 text-sm font-bold mb-1">Informasi Buku KIA:</label>
               <textarea
                 id="kiaInformation"
@@ -218,24 +224,26 @@ export default function Stuntcheck() {
                 placeholder="Informasi tambahan dari buku KIA (opsional)"
                 rows="3"
               />
-            </div>
+            </div> */}
             <div className="space-y-2">
-              <label htmlFor="muac" className="block text-gray-700 text-sm font-bold mb-1">Lingkar Lengan Atas (MUAC) (cm) - Opsional:</label>
+              <label htmlFor="muac" className="block text-gray-700 text-sm font-bold mb-1">Lingkar Lengan Atas (MUAC) (cm)</label>
               <input
                 type="number"
                 id="muac"
                 value={muac}
                 onChange={(e) => setMuac(e.target.value)}
+                placeholder='Optional'
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              />
+                />
             </div>
             <div className="space-y-2">
-              <label htmlFor="headCircumference" className="block text-gray-700 text-sm font-bold mb-1">Lingkar Kepala (cm) - Opsional:</label>
+              <label htmlFor="headCircumference" className="block text-gray-700 text-sm font-bold mb-1">Lingkar Kepala (cm)</label>
               <input
                 type="number"
                 id="headCircumference"
                 value={headCircumference}
                 onChange={(e) => setHeadCircumference(e.target.value)}
+                placeholder='Optional'
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
@@ -245,7 +253,7 @@ export default function Stuntcheck() {
                 disabled={loading}
                 className="cursor-pointer bg-emerald-500 hover:bg-emerald-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
               >
-                {loading ? 'Menganalisis...' : 'Analisis'}
+                {loading ? 'Analyzing...' : 'Analyze'}
               </button>
             </div>
           </form>
@@ -253,7 +261,7 @@ export default function Stuntcheck() {
           {error && <p className="text-red-500 mt-4 text-center">{error}</p>}
           {result && (
             <div className="mt-8 p-6 border rounded-2xl shadow-md">
-              <h2 className="text-xl font-bold mb-4 text-emerald-600">Hasil Analisis</h2>
+              <h2 className="text-xl font-bold mb-4 text-emerald-600">Analysis Result</h2>
               <p>Status Stunting: <span className="font-semibold">{result.status}</span></p>
               <p>Tingkat Keparahan: <span className="font-semibold">{result.tingkat_keparahan}</span></p>
               {result.saran_menu && result.saran_menu.length > 0 && (
@@ -262,9 +270,9 @@ export default function Stuntcheck() {
                   <ul>
                     {result.saran_menu.map((menuItem, index) => (
                       <li key={index} className="mb-3 p-3 border rounded-md bg-gray-50">
-                        <h4 className="font-semibold text-emerald-500">{menuItem.nama} ({currency} {menuItem.harga})</h4>
+                        <h4 className="font-semibold text-emerald-500">{menuItem.nama}  (est. {currency} {menuItem.harga})</h4>
                         <p className="text-gray-700 text-sm italic">{menuItem.deskripsi}</p>
-                        <p className="text-gray-600 text-xs mt-1">Alasan: {menuItem.alasan}</p>
+                        <p className="text-gray-600 text-xs mt-1">Reason: {menuItem.alasan}</p>
                       </li>
                     ))}
                   </ul>

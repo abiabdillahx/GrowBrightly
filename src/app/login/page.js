@@ -8,20 +8,24 @@ import { doc, setDoc, getDoc } from "firebase/firestore";
 export default function LoginPage() {
     const router = useRouter();
     const [error, setError] = useState(null); 
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
 
-    useEffect(() => {
-        const togglePassword = document.getElementById('togglePassword');
-        const passwordInput = document.getElementById('password');
+
+    // useEffect(() => {
+    //     const togglePassword = document.getElementById('togglePassword');
+    //     const passwordInput = document.getElementById('password');
         
-        if (togglePassword && passwordInput) {
-            togglePassword.addEventListener('click', function () {
-                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-                passwordInput.setAttribute('type', type);
-                this.querySelector('i').classList.toggle('fa-eye-slash');
-                this.querySelector('i').classList.toggle('fa-eye');
-            });
-        }
-    }, []);
+    //     if (togglePassword && passwordInput) {
+    //         togglePassword.addEventListener('click', function () {
+    //             const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+    //             passwordInput.setAttribute('type', type);
+    //             this.querySelector('i').classList.toggle('fa-eye-slash');
+    //             this.querySelector('i').classList.toggle('fa-eye');
+    //         });
+    //     }
+    // }, []);
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -84,7 +88,7 @@ export default function LoginPage() {
                     <h1 className="text-2xl font-bold text-white">Welcome Back</h1>
                     <p className="text-emerald-100 mt-1">Sign in to your account</p>
                 </div>
-                
+                {/* {error && <p className="text-red-500">{error}</p>} */}
                 <form className="p-8" id="loginForm" onSubmit={handleLogin}>
                     {error && <p className="text-red-500 text-sm mb-4">{error}</p>} 
                     <div className="mb-6">
@@ -103,9 +107,19 @@ export default function LoginPage() {
                             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                 <i className="fas fa-lock text-gray-400"></i>
                             </div>
-                            <input type="password" id="password" className="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl focus-emerald outline-none transition duration-200" placeholder="••••••••" required/>
-                            <button type="button" className="absolute right-3 top-3 text-gray-400 hover:text-gray-600" id="togglePassword">
-                                <i className="fas fa-eye"></i>
+                            <input
+                                type={showPassword ? 'text' : 'password'}
+                                id="password"
+                                className="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl focus-emerald outline-none transition duration-200"
+                                placeholder="••••••••"
+                                required
+                            />
+                            <button
+                                type="button"
+                                className="absolute right-3 top-3 text-gray-400 hover:text-gray-600"
+                                onClick={() => setShowPassword(!showPassword)}
+                            >
+                                <i className={`fas ${showPassword ? 'fa-eye-slash' : 'fa-eye'}`}></i>
                             </button>
                         </div>
                     </div>
