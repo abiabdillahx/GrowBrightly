@@ -1,79 +1,104 @@
 'use client';
-import { useEffect } from "react";
+import { useEffect, useState } from "react"; // Tambahkan useState
+import { useRouter } from 'next/navigation'; // Untuk redirect
+import { auth, db } from "@/utils/firebase"; // Path ke konfigurasi Firebase Anda
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
 
 export default function Register() {
+    const router = useRouter();
+    const [error, setError] = useState(null); // State untuk menampilkan error
+
     useEffect(() => {
-    const togglePassword = document.getElementById('togglePassword');
-    const toggleConfirmPassword = document.getElementById('toggleConfirmPassword');
-    const passwordInput = document.getElementById('password');
-    const confirmPasswordInput = document.getElementById('confirmPassword');
-    const registerForm = document.getElementById('registerForm');
+        const togglePassword = document.getElementById('togglePassword');
+        const toggleConfirmPassword = document.getElementById('toggleConfirmPassword');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirmPassword');
 
-    function setupPasswordToggle(button, input) {
-        if (!button || !input) return;
-        button.addEventListener('click', function () {
-            const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
-            input.setAttribute('type', type);
-            this.querySelector('i').classList.toggle('fa-eye-slash');
-            this.querySelector('i').classList.toggle('fa-eye');
-        });
-    }
+        function setupPasswordToggle(button, input) {
+            if (!button || !input) return;
+            button.addEventListener('click', function () {
+                const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+                input.setAttribute('type', type);
+                this.querySelector('i').classList.toggle('fa-eye-slash');
+                this.querySelector('i').classList.toggle('fa-eye');
+            });
+        }
 
-    setupPasswordToggle(togglePassword, passwordInput);
-    setupPasswordToggle(toggleConfirmPassword, confirmPasswordInput);
+        setupPasswordToggle(togglePassword, passwordInput);
+        setupPasswordToggle(toggleConfirmPassword, confirmPasswordInput);
+    }, []);
 
-    if (registerForm) {
-        registerForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            const firstName = document.getElementById('firstName').value;
-            const lastName = document.getElementById('lastName').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
-            const terms = document.getElementById('terms').checked;
+    const handleRegister = async (e) => {
+        e.preventDefault();
+        setError(null); // Reset error
 
-            if (!firstName || !lastName || !email || !password || !confirmPassword) {
-                alert('Please fill in all fields');
-                return;
-            }
+        const firstName = document.getElementById('firstName').value;
+        const lastName = document.getElementById('lastName').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+        const terms = document.getElementById('terms').checked;
 
-            if (password !== confirmPassword) {
-                alert('Passwords do not match');
-                return;
-            }
+        if (!firstName || !lastName || !email || !password || !confirmPassword) {
+            setError('Please fill in all fields');
+            return;
+        }
 
-            if (password.length < 8) {
-                alert('Password must be at least 8 characters');
-                return;
-            }
+        if (password !== confirmPassword) {
+            setError('Passwords do not match');
+            return;
+        }
 
-            if (!terms) {
-                alert('You must agree to the terms and conditions');
-                return;
-            }
+        if (password.length < 8) {
+            setError('Password must be at least 8 characters');
+            return;
+        }
 
-            console.log('Registration attempt with:', { firstName, lastName, email, password });
+        if (!terms) {
+            setError('You must agree to the terms and conditions');
+            return;
+        }
+
+        try {
+            // 1. Buat pengguna di Firebase Authentication
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+
+            // 2. Simpan data tambahan pengguna di Firestore
+            await setDoc(doc(db, "users", user.uid), {
+                uid: user.uid,
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                createdAt: new Date() // Timestamp kapan user dibuat
+            });
+
+            console.log('Registration successful! User UID:', user.uid);
             alert('Registration successful! Welcome to our community.');
-            // window.location.href = '/dashboard';
-        });
-    }
-}, []);
+            router.push('/login'); // Redirect ke halaman login setelah sukses
+
+        } catch (error) {
+            console.error('Error during registration:', error);
+            setError(error.message); // Tampilkan pesan error dari Firebase
+            alert(`Registration failed: ${error.message}`);
+        }
+    };
 
     return (
         <div className="min-h-200 flex items-center justify-center p-1">
             <div className="w-full max-w-md">
                 <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-                    {/* <!-- Header --> */}
                     <div className="bg-emerald-gradient py-6 px-8 text-center">
                         <h1 className="text-2xl font-bold text-white">Create Account</h1>
                         <p className="text-emerald-100 mt-1">Join our community</p>
                     </div>
                     
-                    {/* <!-- Form --> */}
-                    <form className="p-8" id="registerForm">
+                    <form className="p-8" id="registerForm" onSubmit={handleRegister}>
+                        {error && <p className="text-red-500 text-sm mb-4">{error}</p>} {/* Tampilkan error */} 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                             <div>
-                                <label for="firstName" className="block text-gray-700 text-sm font-medium mb-2">First Name</label>
+                                <label htmlFor="firstName" className="block text-gray-700 text-sm font-medium mb-2">First Name</label>
                                 <div className="relative">
                                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                         <i className="fas fa-user text-gray-400"></i>
@@ -82,7 +107,7 @@ export default function Register() {
                                 </div>
                             </div>
                             <div>
-                                <label for="lastName" className="block text-gray-700 text-sm font-medium mb-2">Last Name</label>
+                                <label htmlFor="lastName" className="block text-gray-700 text-sm font-medium mb-2">Last Name</label>
                                 <div className="relative">
                                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                         <i className="fas fa-user text-gray-400"></i>
@@ -93,7 +118,7 @@ export default function Register() {
                         </div>
                         
                         <div className="mb-4">
-                            <label for="email" className="block text-gray-700 text-sm font-medium mb-2">Email Address</label>
+                            <label htmlFor="email" className="block text-gray-700 text-sm font-medium mb-2">Email Address</label>
                             <div className="relative">
                                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <i className="fas fa-envelope text-gray-400"></i>
@@ -103,7 +128,7 @@ export default function Register() {
                         </div>
                         
                         <div className="mb-4">
-                            <label for="password" className="block text-gray-700 text-sm font-medium mb-2">Password</label>
+                            <label htmlFor="password" className="block text-gray-700 text-sm font-medium mb-2">Password</label>
                             <div className="relative">
                                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <i className="fas fa-lock text-gray-400"></i>
@@ -117,7 +142,7 @@ export default function Register() {
                         </div>
                         
                         <div className="mb-6">
-                            <label for="confirmPassword" className="block text-gray-700 text-sm font-medium mb-2">Confirm Password</label>
+                            <label htmlFor="confirmPassword" className="block text-gray-700 text-sm font-medium mb-2">Confirm Password</label>
                             <div className="relative">
                                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <i className="fas fa-lock text-gray-400"></i>
@@ -131,7 +156,7 @@ export default function Register() {
                         
                         <div className="flex items-center mb-6">
                             <input type="checkbox" id="terms" className="h-4 w-4 text-emerald-600 focus:ring-emerald-500 border-gray-300 rounded" required/>
-                            <label for="terms" className="ml-2 block text-sm text-gray-700">
+                            <label htmlFor="terms" className="ml-2 block text-sm text-gray-700">
                                 I agree to the <a href="#" className="text-emerald-600 hover:text-emerald-800 font-medium">Terms</a> and <a href="#" className="text-emerald-600 hover:text-emerald-800 font-medium">Privacy Policy</a>
                             </label>
                         </div>
