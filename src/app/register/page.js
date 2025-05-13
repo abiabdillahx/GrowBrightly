@@ -76,7 +76,7 @@ export default function Register() {
 
             console.log('Registration successful! User UID:', user.uid);
             alert('Registration successful! Welcome to our community.');
-            router.push('/login'); // Redirect ke halaman login setelah sukses
+            router.push('/'); 
 
         } catch (error) {
             console.error('Error during registration:', error);
