@@ -1,13 +1,13 @@
 'use client';
-import { useEffect, useState } from "react"; // Tambahkan useState
-import { useRouter } from 'next/navigation'; // Untuk redirect
-import { auth, googleProvider, db } from "@/utils/firebase"; // Path ke konfigurasi Firebase Anda
+import { useEffect, useState } from "react"; 
+import { useRouter } from 'next/navigation'; 
+import { auth, googleProvider, db } from "@/utils/firebase"; 
 import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { doc, setDoc, getDoc } from "firebase/firestore"; // Untuk Firestore
+import { doc, setDoc, getDoc } from "firebase/firestore"; 
 
 export default function LoginPage() {
     const router = useRouter();
-    const [error, setError] = useState(null); // State untuk menampilkan error
+    const [error, setError] = useState(null); 
 
     useEffect(() => {
         const togglePassword = document.getElementById('togglePassword');
@@ -37,7 +37,7 @@ export default function LoginPage() {
         try {
             await signInWithEmailAndPassword(auth, email, password);
             alert('Login successful!');
-            router.push('/'); // Redirect ke halaman utama atau dashboard
+            router.push('/');
         } catch (error) {
             console.error("Error signing in with email and password:", error);
             setError(error.message);
@@ -51,27 +51,23 @@ export default function LoginPage() {
             const result = await signInWithPopup(auth, googleProvider);
             const user = result.user;
             
-            // Cek apakah pengguna sudah ada di Firestore
             const userDocRef = doc(db, "users", user.uid);
             const userDoc = await getDoc(userDocRef);
 
             if (!userDoc.exists()) {
-                // Jika pengguna baru (login pertama kali dengan Google), simpan datanya
                 await setDoc(userDocRef, {
                     uid: user.uid,
                     email: user.email,
                     displayName: user.displayName,
-                    photoURL: user.photoURL, // URL foto profil dari Google
+                    photoURL: user.photoURL,
                     createdAt: new Date(),
-                    // Anda bisa menambahkan field lain seperti firstName, lastName jika diperlukan
-                    // dan mungkin meminta pengguna untuk melengkapinya nanti
                     firstName: user.displayName ? user.displayName.split(' ')[0] : '',
                     lastName: user.displayName ? user.displayName.split(' ').slice(1).join(' ') : ''
                 });
             }
 
             alert('Google Sign-In successful!');
-            router.push('/'); // Redirect ke halaman utama atau dashboard
+            router.push('/'); 
         } catch (error) {
             console.error("Error signing in with Google:", error);
             setError(error.message);
@@ -134,7 +130,7 @@ export default function LoginPage() {
                             onClick={handleGoogleSignIn} 
                             className="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-4 rounded-full flex items-center justify-center shadow hover:shadow-md transition duration-200"
                         >
-                            <i className="fab fa-google mr-2"></i> {/* Anda mungkin perlu menambahkan Font Awesome jika belum ada */}
+                            <i className="fab fa-google mr-2"></i> {}
                             Sign In with Google
                         </button>
                     </div>

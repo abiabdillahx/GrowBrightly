@@ -1,13 +1,13 @@
 'use client';
-import { useEffect, useState } from "react"; // Tambahkan useState
-import { useRouter } from 'next/navigation'; // Untuk redirect
-import { auth, db } from "@/utils/firebase"; // Path ke konfigurasi Firebase Anda
+import { useEffect, useState } from "react"; 
+import { useRouter } from 'next/navigation'; 
+import { auth, db } from "@/utils/firebase"; 
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 
 export default function Register() {
     const router = useRouter();
-    const [error, setError] = useState(null); // State untuk menampilkan error
+    const [error, setError] = useState(null); 
 
     useEffect(() => {
         const togglePassword = document.getElementById('togglePassword');
@@ -31,8 +31,7 @@ export default function Register() {
 
     const handleRegister = async (e) => {
         e.preventDefault();
-        setError(null); // Reset error
-
+        setError(null); 
         const firstName = document.getElementById('firstName').value;
         const lastName = document.getElementById('lastName').value;
         const email = document.getElementById('email').value;
@@ -61,17 +60,15 @@ export default function Register() {
         }
 
         try {
-            // 1. Buat pengguna di Firebase Authentication
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;
 
-            // 2. Simpan data tambahan pengguna di Firestore
             await setDoc(doc(db, "users", user.uid), {
                 uid: user.uid,
                 firstName: firstName,
                 lastName: lastName,
                 email: email,
-                createdAt: new Date() // Timestamp kapan user dibuat
+                createdAt: new Date()
             });
 
             console.log('Registration successful! User UID:', user.uid);
@@ -80,7 +77,7 @@ export default function Register() {
 
         } catch (error) {
             console.error('Error during registration:', error);
-            setError(error.message); // Tampilkan pesan error dari Firebase
+            setError(error.message); 
             alert(`Registration failed: ${error.message}`);
         }
     };
