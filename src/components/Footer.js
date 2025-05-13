@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     // <!-- Footer -->
-        <footer className="bg-gray-800 text-white py-12 select-none">
+        <footer className="bg-gray-800 text-white py-8 select-none">
             <div className="container mx-auto px-4">
                 <div className="grid md:grid-cols-4 gap-8">
                     <div className="ml-8">
@@ -60,7 +60,7 @@ export default function Footer() {
                     </div>
                 </div>
                 
-                <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 select-text">
+                <div className="border-t border-gray-700 mt-4 pt-4 text-center text-gray-400 select-text">
                     <p>© 2025 GrowBrightly. All rights reserved.</p>
                 </div>
             </div>

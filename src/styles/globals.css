@@ -63,3 +63,9 @@ body {
 .btn-emerald:active {
     transform: translateY(0);
 }
+
+
+/* for input forms */
+.ggwp {
+  border-radius: var(--radius-2xl);
+}

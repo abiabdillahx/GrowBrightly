@@ -74,9 +74,9 @@ export default function Navbar() {
 
         {/* Desktop Menu & User Info */} 
         <div className="hidden md:flex items-center space-x-6 text-gray-700 font-medium">
-          <Link href="/" className="duration-300 hover:text-emerald-600 py-1">Home</Link>
-          <Link href="/check" className="duration-300 hover:text-emerald-600 py-1">StuntCheck</Link>
-          <Link href="/about" className="duration-300 hover:text-emerald-600 py-1">About Us</Link>
+          <Link href="/" className="duration-300 hover:text-emerald-600 hover:-translate-y-0.5 py-1">Home</Link>
+          <Link href="/check" className="duration-300 hover:text-emerald-600 hover:-translate-y-0.5 py-1">StuntCheck</Link>
+          <Link href="/about" className="duration-300 hover:text-emerald-600 hover:-translate-y-0.5 py-1">About Us</Link>
           {/* Conditional rendering based on auth state */}
           {loading ? (
             <div className="h-8 w-20 bg-gray-200 rounded-md animate-pulse"></div> // Simple loading placeholder
@@ -118,7 +118,7 @@ export default function Navbar() {
               )}
             </div>
           ) : (
-            <Link href="/login" className="duration-300 hover:text-green-600 hover:-translate-y-1 font-bold border rounded-md px-4 py-1 border-emerald-600">Login</Link>
+            <Link href="/login" className="duration-300 hover:text-green-600 hover:-translate-y-0.5 font-bold border rounded-md px-4 py-1 border-emerald-600">Login</Link>
           )}
         </div>
 
@@ -189,11 +189,11 @@ export default function Navbar() {
             <Link href="/check" onClick={() => setIsMobileMenuOpen(false)} className="py-2 hover:text-emerald-600">StuntCheck</Link>
             <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="py-2 hover:text-emerald-600">About Us</Link>
             {/* <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="py-2 hover:text-emerald-600">Blog</Link> */} 
-            {/* Conditional links for mobile */} 
+            {/* Conditional links for mobile */}
             {currentUser ? (
                <button 
                  onClick={handleLogout} 
-                 className="py-2 text-left text-red-600 hover:text-red-800 font-semibold mt-2 border-t pt-3"
+                 className="py-2 cursor-pointer text-left text-red-600 hover:text-red-800 font-semibold mt-2 border-t pt-3"
                >
                  Logout
                </button>

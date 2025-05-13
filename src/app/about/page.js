@@ -57,10 +57,10 @@ export default function AboutPage() {
                 our kids&apos; growth.
               </p>
               <a
-                href="#"
+                href="#more"
                 className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105 inline-block"
               >
-                Learn More <i className="fas fa-arrow-right ml-2"></i>
+                Learn More <i className="fas fa-arrow-down ml-2"></i>
               </a>
             </div>
             <div className="md:w-1/2 flex justify-center">
@@ -77,7 +77,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission and Vision */}
-      <section className="py-16 bg-white mx-15">
+      <section id="more" className="py-16 bg-white mx-15">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
