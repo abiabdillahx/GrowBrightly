@@ -85,7 +85,7 @@ export default function Stuntcheck() {
                 onChange={(e) => setWeight(e.target.value)}
                 placeholder='4'
                 required
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
             <div className="space-y-2">
@@ -97,7 +97,7 @@ export default function Stuntcheck() {
                 onChange={(e) => setHeight(e.target.value)}
                 placeholder='65'
                 required
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
             <div className="space-y-2">
@@ -109,7 +109,7 @@ export default function Stuntcheck() {
                 onChange={(e) => setAge(e.target.value)}
                 placeholder='9'
                 required
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
             <div className="space-y-2">
@@ -119,7 +119,7 @@ export default function Stuntcheck() {
                 value={gender}
                 onChange={(e) => setGender(e.target.value)}
                 required
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               >
                 <option value="">-- Choose --</option>
                 <option value="laki-laki">Laki-laki</option>
@@ -135,7 +135,7 @@ export default function Stuntcheck() {
                 onChange={(e) => setBirthWeight(e.target.value)}
                 placeholder='3,5'
                 required
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
             <div className="space-y-2">
@@ -145,7 +145,7 @@ export default function Stuntcheck() {
                 value={isPremature}
                 onChange={(e) => setIsPremature(e.target.value)}
                 required
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               >
                 <option value="">-- Choose --</option>
                 <option value="ya">Ya</option>
@@ -161,7 +161,7 @@ export default function Stuntcheck() {
                 onChange={(e) => setFeedingFrequency(e.target.value)}
                 placeholder='3'
                 required
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
             <div className="space-y-2">
@@ -170,7 +170,7 @@ export default function Stuntcheck() {
                 id="breastfeedingPattern"
                 value={breastfeedingPattern}
                 onChange={(e) => setBreastfeedingPattern(e.target.value)}
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               >
                 <option value="">-- Choose --</option>
                 <option value="Eksklusif">Exclusive</option>
@@ -186,7 +186,7 @@ export default function Stuntcheck() {
                 placeholder='Your Country'
                 onChange={(e) => setDomisili(e.target.value)}
                 required
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
             <div className="space-y-2">
@@ -247,11 +247,11 @@ export default function Stuntcheck() {
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
-            <div className="col-span-1 md:col-span-2 lg:col-span-3">
+            <div className="col-span-1 md:col-span-2 lg:col-span-3 flex justify-center mt-4">
               <button
                 type="submit"
                 disabled={loading}
-                className="cursor-pointer bg-emerald-500 hover:bg-emerald-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
+                className="cursor-pointer bg-emerald-500 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-2xl duration-200 focus:outline-none focus:shadow-outline w-lg"
               >
                 {loading ? 'Analyzing...' : 'Analyze'}
               </button>
@@ -262,11 +262,11 @@ export default function Stuntcheck() {
           {result && (
             <div className="mt-8 p-6 border rounded-2xl shadow-md">
               <h2 className="text-xl font-bold mb-4 text-emerald-600">Analysis Result</h2>
-              <p>Status Stunting: <span className="font-semibold">{result.status}</span></p>
-              <p>Tingkat Keparahan: <span className="font-semibold">{result.tingkat_keparahan}</span></p>
+              <p>Stunting Status: <span className="font-semibold">{result.status}</span></p>
+              <p>Severity: <span className="font-semibold">{result.tingkat_keparahan}</span></p>
               {result.saran_menu && result.saran_menu.length > 0 && (
                 <div className="mt-4">
-                  <h3 className="font-bold mb-2 text-gray-800">Saran Menu:</h3>
+                  <h3 className="font-bold mb-2 text-gray-800">Menu Suggestions:</h3>
                   <ul>
                     {result.saran_menu.map((menuItem, index) => (
                       <li key={index} className="mb-3 p-3 border rounded-md bg-gray-50">
@@ -279,14 +279,14 @@ export default function Stuntcheck() {
                 </div>
               )}
               <div className="mt-4">
-                <p className='font-bold text-gray-800'>Analisa AI: <br/>
+                <p className='font-bold text-gray-800'>AI Analysis: <br/>
                   <span className='font-normal text-gray-700'>
                     {result.analisa_ai}
                   </span>
                 </p>
               </div>
               {result.rekomendasi_dokter && (
-                <p className="font-semibold text-orange-600 mt-2">Rekomendasi Dokter: {result.rekomendasi_dokter}</p>
+                <p className="font-semibold text-orange-600 mt-2">Doctor Recommendation: {result.rekomendasi_dokter}</p>
               )}
             </div>
           )}

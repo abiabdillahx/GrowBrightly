@@ -20,6 +20,9 @@ export const metadata = {
     default: 'GrowBrightly - We make a better Future generation',
   },
   description: 'Aplikasi untuk mendeteksi potensi stunting pada anak.',
+  icons: {
+    icon: '/favicon.ico', // atau .svg
+  },
 };
 
 export default function RootLayout({ children }) {
