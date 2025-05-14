@@ -40,7 +40,7 @@ export default function Blog() {
                             <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-xs">Healthcare</span>
                         </div>
                         <div className="article-content">
-                            <p>The Upper Arm Circumference (MUAC) is a fantastic, quick, and non-invasive way to assess a person's nutritional status, particularly in identifying malnutrition. It's like taking a snapshot of their muscle and fat reserves...</p>
+                            <p>The Upper Arm Circumference (MUAC) is a fantastic, quick, and non-invasive way to assess a person&apos;s nutritional status, particularly in identifying malnutrition. It&apos;s like taking a snapshot of their muscle and fat reserves...</p>
                         </div>
                         <a href="/blog/muac-measurement" className="inline-block mt-4 text-emerald-600 hover:text-emerald-800 font-medium">
                             Read more →

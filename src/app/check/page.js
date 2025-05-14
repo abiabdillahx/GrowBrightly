@@ -234,9 +234,9 @@ export default function Stuntcheck() {
                 <div className="inline-block relative group ml-1">
                   <span className="text-emerald-400 fa-solid fa-circle-info cursor-pointer" />
                   <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-64 bg-gray-800 text-white text-xs rounded-md py-2 px-3 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out z-10">
-                    Pengukuran lingkar lengan atas digunakan untuk menilai status gizi.{' '}
+                    Measurement of upper arm circumference is used to assess nutritional status.{' '}
                     <a href="/blog/muac-measurement" className="text-emerald-400 hover:underline">
-                      Pelajari lebih lanjut di blog kami.
+                      Learn more on our blog.
                     </a>
                   </div>
                 </div>
@@ -248,7 +248,7 @@ export default function Stuntcheck() {
                 type="number"
                 value={muac}
                 onChange={(e) => setMuac(e.target.value)}
-                placeholder="Contoh: 25.5"
+                placeholder="Example: 25.5"
               />
             </div>
             <div className="space-y-2">
@@ -257,9 +257,9 @@ export default function Stuntcheck() {
                 <div className="inline-block relative group ml-1">
                   <span className="text-emerald-400 fa-solid fa-circle-info cursor-pointer" />
                   <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-64 bg-gray-800 text-white text-xs rounded-md py-2 px-3 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out z-10">
-                    Pengukuran lingkar kepala digunakan untuk menilai status gizi.{' '}
-                    <a href="/blog/head-cir" className="text-emerald-400 hover:underline">
-                      Pelajari lebih lanjut di blog kami.
+                    Head circumference measurements are used to assess nutritional status.{' '}
+                    <a href="/blog/head-circumference" className="text-emerald-400 hover:underline">
+                      Learn more on our blog.
                     </a>
                   </div>
                 </div>
@@ -269,7 +269,7 @@ export default function Stuntcheck() {
                 id="headCircumference"
                 value={headCircumference}
                 onChange={(e) => setHeadCircumference(e.target.value)}
-                placeholder='Optional'
+                placeholder='Example: 11'
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
@@ -314,8 +314,11 @@ export default function Stuntcheck() {
 
                         {openIndex === index && (
                           <div className="mt-3 p-3 bg-white border rounded text-sm text-gray-700">
-                            <p><span className="font-semibold">Recipe:</span> {menuItem.recipes}</p>
-                            <p className="mt-2"><span className="font-semibold">How to Cook:</span> {menuItem.cara_memasak}</p>
+                            <p><span className="font-semibold">Recipe:</span> {menuItem.ingredients}</p>
+                            <p className="mt-2 whitespace-pre-line">
+                              <span className="font-semibold">How to Cook:</span>{"\n"}
+                              {menuItem.cara_memasak}
+                            </p>
                           </div>
                         )}
                       </li>
@@ -334,6 +337,17 @@ export default function Stuntcheck() {
               {result.rekomendasi_dokter && (
                 <p className="font-semibold text-orange-600 mt-2">Doctor Recommendation: {result.rekomendasi_dokter}</p>
               )}
+              {result.additional_solution && (
+                <div className="mt-2">
+                  <p className="font-semibold mb-1">Additional Solution:</p>
+                  <p className="text-green-700 text-sm whitespace-pre-line">
+                    {result.additional_solution}
+                  </p>
+                </div>
+              )}
+
+
+
             </div>
           )}
         </div>

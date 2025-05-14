@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    domains: ['randomuser.me', 'images.unsplash.com', 'www.rch.org.au'],
     remotePatterns: [
       {
         protocol: 'https',
