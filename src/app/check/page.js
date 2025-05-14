@@ -1,6 +1,7 @@
 'use client'; // Ini penting untuk komponen yang interaktif
 import Head from 'next/head';
 import { useState } from 'react';
+import { Info } from 'lucide-react';
 
 export default function Stuntcheck() {
   const [weight, setWeight] = useState('');
@@ -66,6 +67,8 @@ export default function Stuntcheck() {
       setLoading(false);
     }
   };
+  const [openIndex, setOpenIndex] = useState(null);
+
 
   return (
     <>
@@ -226,18 +229,41 @@ export default function Stuntcheck() {
               />
             </div> */}
             <div className="space-y-2">
-              <label htmlFor="muac" className="block text-gray-700 text-sm font-bold mb-1">Lingkar Lengan Atas (MUAC) (cm)</label>
+              <label htmlFor="muac" className="block text-gray-700 text-sm font-bold mb-1">
+                Upper Arm Circumference (cm)
+                <div className="inline-block relative group ml-1">
+                  <span className="text-emerald-400 fa-solid fa-circle-info cursor-pointer" />
+                  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-64 bg-gray-800 text-white text-xs rounded-md py-2 px-3 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out z-10">
+                    Pengukuran lingkar lengan atas digunakan untuk menilai status gizi.{' '}
+                    <a href="/blog/muac-measurement" className="text-emerald-400 hover:underline">
+                      Pelajari lebih lanjut di blog kami.
+                    </a>
+                  </div>
+                </div>
+              </label>
+
               <input
-                type="number"
                 id="muac"
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                type="number"
                 value={muac}
                 onChange={(e) => setMuac(e.target.value)}
-                placeholder='Optional'
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                />
+                placeholder="Contoh: 25.5"
+              />
             </div>
             <div className="space-y-2">
-              <label htmlFor="headCircumference" className="block text-gray-700 text-sm font-bold mb-1">Lingkar Kepala (cm)</label>
+              <label htmlFor="muac" className="block text-gray-700 text-sm font-bold mb-1">
+                Head Circumference (cm)
+                <div className="inline-block relative group ml-1">
+                  <span className="text-emerald-400 fa-solid fa-circle-info cursor-pointer" />
+                  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-64 bg-gray-800 text-white text-xs rounded-md py-2 px-3 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out z-10">
+                    Pengukuran lingkar kepala digunakan untuk menilai status gizi.{' '}
+                    <a href="/blog/head-cir" className="text-emerald-400 hover:underline">
+                      Pelajari lebih lanjut di blog kami.
+                    </a>
+                  </div>
+                </div>
+              </label>
               <input
                 type="number"
                 id="headCircumference"
@@ -270,12 +296,32 @@ export default function Stuntcheck() {
                   <ul>
                     {result.saran_menu.map((menuItem, index) => (
                       <li key={index} className="mb-3 p-3 border rounded-md bg-gray-50">
-                        <h4 className="font-semibold text-emerald-500">{menuItem.nama}  (est. {currency} {menuItem.harga})</h4>
-                        <p className="text-gray-700 text-sm italic">{menuItem.deskripsi}</p>
-                        <p className="text-gray-600 text-xs mt-1">Reason: {menuItem.alasan}</p>
+                        <div className="flex justify-between items-center">
+                          <div>
+                            <h4 className="font-semibold text-emerald-500">
+                              {menuItem.nama} (est. {currency} {menuItem.harga})
+                            </h4>
+                            <p className="text-gray-700 text-sm italic">{menuItem.deskripsi}</p>
+                            <p className="text-gray-600 text-xs mt-1">Reason: {menuItem.reason}</p>
+                          </div>
+                          <button
+                            onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                            className="ml-4 px-3 py-1 bg-emerald-500 text-white text-xs rounded-full hover:bg-emerald-600 transition duration-200"
+                          >
+                            {openIndex === index ? 'Hide' : 'How to Cook'}
+                          </button>
+                        </div>
+
+                        {openIndex === index && (
+                          <div className="mt-3 p-3 bg-white border rounded text-sm text-gray-700">
+                            <p><span className="font-semibold">Recipe:</span> {menuItem.recipes}</p>
+                            <p className="mt-2"><span className="font-semibold">How to Cook:</span> {menuItem.cara_memasak}</p>
+                          </div>
+                        )}
                       </li>
                     ))}
                   </ul>
+
                 </div>
               )}
               <div className="mt-4">

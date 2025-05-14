@@ -34,15 +34,15 @@ export default function Blog() {
                             <span className="mx-2">•</span>
                             <span>8 min read</span>
                         </div>
-                        <h2 className="text-2xl font-semibold mb-3">How AI is Improving Stunting Detection</h2>
+                        <h2 className="text-2xl font-semibold mb-3">How to Measure MUAC</h2>
                         <div className="flex flex-wrap gap-2 mb-4">
                             <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-xs">AI</span>
                             <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-xs">Healthcare</span>
                         </div>
                         <div className="article-content">
-                            <p>Childhood stunting remains a critical global health challenge, affecting nearly 22% of children under five worldwide. Our research demonstrates how artificial intelligence can improve early detection and intervention strategies...</p>
+                            <p>The Upper Arm Circumference (MUAC) is a fantastic, quick, and non-invasive way to assess a person's nutritional status, particularly in identifying malnutrition. It's like taking a snapshot of their muscle and fat reserves...</p>
                         </div>
-                        <a href="#" className="inline-block mt-4 text-emerald-600 hover:text-emerald-800 font-medium">
+                        <a href="/blog/muac-measurement" className="inline-block mt-4 text-emerald-600 hover:text-emerald-800 font-medium">
                             Read more →
                         </a>
                     </div>

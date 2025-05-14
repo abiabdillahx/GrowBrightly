@@ -54,16 +54,20 @@ export async function POST(request) {
       "negara_asal": "...",
       "saran_menu": [
           {
-          "nama": "...",
-          "deskripsi": "...",
-          "harga": ...,
-          "alasan": "..."
+            "nama": "...",
+            "deskripsi": "...",
+            "harga": ...,
+            "reason": "...",
+            "cara_memasak": "...",
+            "recipes": "how to cook it..."
           },
           {
-          "nama": "...",
-          "deskripsi": "...",
-          "harga": ...,
-          "alasan": "..."
+            "nama": "...",
+            "deskripsi": "...",
+            "harga": ...,
+            "reason": "...",
+            "cara_memasak": "...",
+            "recipes": "how to cook it..."
           },
           // ... (other menu suggestion items)
           ],
@@ -71,7 +75,7 @@ export async function POST(request) {
       "rekomendasi_dokter": "...(Yes/No)"
       }
       Also provide a price for the menu suggestion provided.
-      In the menu suggestion, display nutritional suggestions that support growth, adjusted to the child's condition. Adjust the menu to income (the menu must be standard even if the income is relatively too low) and the child's country of origin. The price you provide must also be adjusted to the currency provided, not according to the country of domicile.
+      In the menu suggestion, display nutritional suggestions that support growth, adjusted to the child's condition. Adjust the menu to income (the menu must be standard even if the income is relatively too low) and the child's country of origin. The price you provide must also be adjusted to the currency provided, not according to the country of domicile. For each menu, also include a simple step-by-step cooking tutorial (key: cara_memasak) and a summarized recipe (key: resep) based on local ingredients. Please make it step by step and comprehensive.
       In the analysis_ai section, provide an in-depth explanation of why the child is stunted or not (Generate a convincing statement : "After analysis, the child is stunted or not stunted."), considering all the data provided (including birth weight, history of prematurity, feeding frequency, and breastfeeding pattern). How much weight and height should the child (with that age and gender) have. Also include considerations about whether the data on upper arm circumference and head circumference (if available) support or not the diagnosis of stunting. Provide a recommendation of "Yes" in the "doctor_recommendation" key if there is a strong indication of stunting or risk factors that require further examination.
       `;
 
