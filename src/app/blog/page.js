@@ -36,7 +36,7 @@ export default function Blog() {
                         </div>
                         <h2 className="text-2xl font-semibold mb-3">How to Measure MUAC</h2>
                         <div className="flex flex-wrap gap-2 mb-4">
-                            <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-xs">AI</span>
+                            <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-xs">Tutorial</span>
                             <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-xs">Healthcare</span>
                         </div>
                         <div className="article-content">
@@ -56,13 +56,13 @@ export default function Blog() {
                             <span className="mx-2">•</span>
                             <span>5 min read</span>
                         </div>
-                        <h2 className="text-2xl font-semibold mb-3">Nutritional Analysis with Machine Learning</h2>
+                        <h2 className="text-2xl font-semibold mb-3">How to Measure Head Circumference</h2>
                         <div className="flex flex-wrap gap-2 mb-4">
-                            <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-xs">Nutrition</span>
-                            <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-xs">ML</span>
+                            <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-xs">Healthcare</span>
+                            <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-xs">Tutorial</span>
                         </div>
                         <div className="article-content">
-                            <p>How machine learning is transforming dietary assessment and personalized nutrition plans in low-income populations. Our latest study shows promising results in automated nutritional analysis...</p>
+                            <p>                        Head circumference measurement is a vital tool for monitoring brain growth and development, especially in infants and young children. This guide covers the proper technique and its importance in pediatric care    ...</p>
                         </div>
                         <a href="#" className="inline-block mt-4 text-emerald-600 hover:text-emerald-800 font-medium">
                             Read more →

@@ -277,7 +277,7 @@ export default function Stuntcheck() {
               <button
                 type="submit"
                 disabled={loading}
-                className="cursor-pointer bg-emerald-500 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-2xl duration-200 focus:outline-none focus:shadow-outline w-lg"
+                className="select-none cursor-pointer bg-emerald-500 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-2xl duration-200 focus:outline-none focus:shadow-outline w-lg"
               >
                 {loading ? 'Analyzing...' : 'Analyze'}
               </button>
@@ -306,7 +306,7 @@ export default function Stuntcheck() {
                           </div>
                           <button
                             onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                            className="ml-4 px-3 py-1 bg-emerald-500 text-white text-xs rounded-full hover:bg-emerald-600 transition duration-200"
+                            className="select-none ml-4 px-3 py-1 bg-emerald-500 text-white text-xs rounded-full hover:bg-emerald-600 transition duration-200"
                           >
                             {openIndex === index ? 'Hide' : 'How to Cook'}
                           </button>
@@ -314,7 +314,7 @@ export default function Stuntcheck() {
 
                         {openIndex === index && (
                           <div className="mt-3 p-3 bg-white border rounded text-sm text-gray-700">
-                            <p><span className="font-semibold">Recipe:</span> {menuItem.ingredients}</p>
+                            <p><span className="font-semibold">Ingredients:</span>{"\n"} {menuItem.ingredients}</p>
                             <p className="mt-2 whitespace-pre-line">
                               <span className="font-semibold">How to Cook:</span>{"\n"}
                               {menuItem.cara_memasak}

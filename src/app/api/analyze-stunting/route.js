@@ -58,8 +58,8 @@ export async function POST(request) {
             "deskripsi": "...",
             "harga": ...,
             "reason": "...",
-            "cara_memasak": "...",
-            "ingredients": "how to cook it..." (with newline per number)
+            "cara_memasak": "...", (with newline with per number)
+            "ingredients": "how to cook it..." (with newline with per number)
           },
           {
             "nama": "...",
