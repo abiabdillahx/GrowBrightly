@@ -38,8 +38,8 @@ export default function Stuntcheck() {
       feedingFrequency,
       breastfeedingPattern,
       kiaInformation,
-      muac: muac || undefined, // Sertakan jika tidak kosong
-      headCircumference: headCircumference || undefined, // Sertakan jika tidak kosong
+      muac: muac || undefined, // Sertakan jika no kosong
+      headCircumference: headCircumference || undefined, // Sertakan jika no kosong
       domisili,
       incomePerMonth,
       currency,
@@ -151,8 +151,8 @@ export default function Stuntcheck() {
                 className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               >
                 <option value="">-- Choose --</option>
-                <option value="ya">Ya</option>
-                <option value="tidak">Tidak</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
               </select>
             </div>
             <div className="space-y-2">
