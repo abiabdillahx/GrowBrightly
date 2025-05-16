@@ -125,8 +125,8 @@ export default function Stuntcheck() {
                 className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               >
                 <option value="">-- Choose --</option>
-                <option value="laki-laki">Laki-laki</option>
-                <option value="perempuan">Perempuan</option>
+                <option value="laki-laki">Male</option>
+                <option value="perempuan">Female</option>
               </select>
             </div>
             <div className="space-y-2">
