@@ -58,7 +58,7 @@ export default function Footer() {
                             </li>
                             <li>
                               <Link href="https://github.com/abiabdillahx/GrowBrightly">
-                                <i className="fa-brands fa-tiktok mr-2 text-gray-300"></i>
+                                <i className="fa-brands fa-github mr-2 text-gray-300"></i>
                                 <span>Github Source</span>
                               </Link>
                             </li>
